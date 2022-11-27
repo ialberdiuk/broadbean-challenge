@@ -1,0 +1,36 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: broadbean-test
+Transform:
+- AWS::Serverless-2016-10-31
+Globals:
+  Function:
+    Tracing: Active
+  Api:
+    TracingEnabled: true
+Resources:
+  RollDiceFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/handlers/start.handler
+      Runtime: nodejs14.x
+      Architectures:
+      - x86_64
+      FunctionName: RollDiceFunction
+      MemorySize: 128
+      Timeout: 900
+      Description: A simple example includes a HTTP get method to check outcome and
+        number of throws of a handful of dices.
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /start
+            Method: GET
+      CodeUri: RollDiceFunction
+    Metadata:
+      SamResourceId: RollDiceFunction
+Outputs:
+  WebEndpoint:
+    Description: API Gateway endpoint URL for Prod stage
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/
