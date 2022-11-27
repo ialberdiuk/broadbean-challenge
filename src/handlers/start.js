@@ -25,7 +25,8 @@ const checkThrow = () => {
   arr = arr.sort()
 
   if (new Set(arr).size === 2) {
-    expectedOutcome = arr[0] !== arr[3] || arr[1] !== arr[4] // it meets no fourfold condition after sorting
+    const fourfold = arr[0] === arr[3] || arr[1] === arr[4]
+    expectedOutcome = !fourfold // it meets no fourfold condition after sorting
     return expectedOutcome === true ? { dice: payload.values, throws: payload.throws } : null
   }
 }
