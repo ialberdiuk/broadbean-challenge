@@ -6,7 +6,7 @@ A serverless application created with the best possible performance to check the
 
 [Similar app Invoking a lambda function](https://github.com/ialberdiuk/broadbean)
 
-If this application was going to be used by millions of customers, the creation of the 5 dice should be removed and a payload would be expected instead
+If this application were to be used by millions of customers, the creation of the 5 dice should be removed and a payload would be expected instead
 ## Try it out
 
 [Play Game](https://tp0phpqbja.execute-api.eu-west-1.amazonaws.com/Prod/start)
