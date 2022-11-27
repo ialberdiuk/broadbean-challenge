@@ -25,7 +25,8 @@ const checkThrow = () => {
   arr = arr.sort()
 
   if (new Set(arr).size === 2) {
-    expectedOutcome = arr[0] !== arr[3] || arr[1] !== arr[4] // it meets no fourfold condition after sorting
+    const fourfold = arr[0] === arr[3] || arr[1] === arr[4]
+    expectedOutcome = !fourfold // it meets no fourfold condition after sorting
     return expectedOutcome === true ? { dice: payload.values, throws: payload.throws } : null
   }
 }
@@ -49,11 +50,11 @@ const startGame = () => {
 exports.handler = async (event) => {
   const { httpMethod } = event
   if (event.path === '/start' && httpMethod === 'GET') {
-    console.time("time")
+    console.time('time')
     const values = startGame()
     throws = 1 // reset throws
     expectedOutcome = false // reset outcome
-    console.timeEnd("time")
+    console.timeEnd('time')
     // All log statements are written to CloudWatch
     console.info(`In the throw number ${values.throws} the outcome two of kind and three of kind has been found ${values.dice}`)
     return responseBuilder(200, JSON.stringify(values), { 'Access-Control-Allow-Methods': 'GET, OPTIONS' })
