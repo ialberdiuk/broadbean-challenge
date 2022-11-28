@@ -2,7 +2,7 @@
 
 ## Notes
 
-A serverless application created with the best possible performance to check the expected outcome in a roll of 5 dice. Please, have a read at the Notes of the repo below
+A serverless application created with the best possible performance to check the expected outcome in a 5 dice roll Please, have a read at the Notes of the repo below
 
 [Similar app Invoking a lambda function](https://github.com/ialberdiuk/broadbean)
 
