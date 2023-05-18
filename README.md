@@ -1,6 +1,4 @@
-## Broadbean-test
-
-## Notes
+### Notes
 
 A serverless application created with the best possible performance to check the expected outcome in a 5 dice roll Please, have a read at the Notes of the repo below
 
